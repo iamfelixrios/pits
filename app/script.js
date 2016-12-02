@@ -21,7 +21,8 @@
         // create a message to display in our view
         var vm = this;
 
-
+        activate();
+        
         function activate() {
             $('#btn_tipo_1').click(function() {
                 $('#map').show();
