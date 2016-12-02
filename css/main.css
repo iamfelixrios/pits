@@ -1,0 +1,205 @@
+/* Map */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#main {
+    height: 100%;
+}
+#map {
+    height: 100%;
+}
+.container {
+    width: 100%;
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    z-index: 5;
+}
+.mobile-menu {
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 5;
+    padding-bottom: 5px;
+}
+.btn-circle {
+    border-radius: 50%;
+    margin-top: 3px;
+    margin-left: 10px;
+} 
+
+.boton-aplicar-menu {
+    position: absolute;
+    width: 100%;
+    bottom: 54px;
+    background-color: #984de8;
+    color: white; 
+    margin-bottom: 0px!important; 
+}
+
+.red-icon {
+    color: red;
+}
+.boton-limpiar-menu {
+    width: 100%;
+    position: absolute;
+    bottom: 0px;   
+    margin-bottom: 0px!important; 
+}
+
+.content-selector-mobile {
+    background-color: white;
+    padding-top: 0px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+/* Navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 250px; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 9999; /* Stay on top */
+    top: 0;
+    left: -250px;
+    background-color: #fff; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 50px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    border: solid 1px #CCC;
+}
+
+
+/* The navigation menu links */
+.sidenav a {
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav .panel-group {
+    display: block;
+    overflow-x: hidden;
+    transition: 0.3s    
+}
+
+.card {
+}
+
+.menu-header {
+    background-color: #984de8;
+    margin: 0px;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    font-size: 36px;
+    color: white;
+    float: right;
+    margin-right: 20px;
+
+}
+.sidenav .closebtn {
+    font-size: 36px;
+    color: white;
+    float: right;
+    margin-right: 20px;
+
+}
+
+.white-bg {
+    background-color: white;
+    color: black;
+}
+
+/* Listado */
+
+#listado {
+    position: absolute;
+    top: 10px;
+    display: none;
+    height: 100%;
+    margin-top: 80px;
+}
+
+.inner-listado {
+    padding: 30px;
+}
+
+.listado-img {
+    width: 100%;
+    height: auto;
+}
+
+.results-item {
+    padding: 20px 0 10px 0;
+    border-bottom: solid 1px #DDD;
+}
+
+.header-listado {
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.listado-title {
+    margin-top: 0px;
+}
+
+.listado-footer {
+    width: 100%;
+    background-image: url(../icons/__icon_PITs_-06.png);
+    background-repeat: no-repeat;
+    background-size: contain; 
+    padding-left: 22px;
+}
+
+.boton-menu {
+    margin: -1px 0px 0px 0px!important;
+}
+.seccion-menu-violet {
+    color: white!important;
+    background-color: #984de8!important;
+    padding: 20px 10px 20px 15px!important;
+}
+.seccion-menu {
+    background-color: white!important;
+    padding: 20px 10px 20px 15px!important;
+}
+.panel-title {
+    font-size: 10pt;
+    text-transform: uppercase;
+}
+.panel-lower {
+    text-transform: none!important;
+}
+
+.panel-title a {
+    color: black;
+    text-decoration: none;
+}
+
+.top-menu-panel {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    color: white;
+    background-color: #984de8;
+}
+
+.menu-nav-caption {
+    margin: 15px 0 0 17px;
+    font-size: 11pt;
+}
+@media screen and (max-width: 667px) { 
+    #listado {
+        margin-top: 70px;
+    }
+}
+@media screen and (min-width: 667px) { 
+    .mobile-menu {
+    }
+}
+

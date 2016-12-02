@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="pitsApp">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>PITS Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/radiobtn.css" rel="stylesheet">
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="app/script.js"></script>
+</head>
+
+<body ng-controller="mainController">
+        <div id="map"></div>
+
+    <div ng-view id="main">
+
+    
+    </div>
+    <!-- End of: controls and menu for mobile only -->
+
+</body>
+<!-- jQuery Version 1.11.1 -->
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<script src="js/menu.js"></script>
+<script src="js/controls.js"></script>
+
+<!-- Google Map JS -->
+<script language="javascript">
+var map;
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 41.386122276956, lng: 2.1871691182577},
+        zoom: 13,
+        mapTypeControl: false,
+    });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwYcxFqTMGl7mxngEtKIufHZAx_BWEbbo&callback=initMap"
+async defer></script>
+
+</html>
