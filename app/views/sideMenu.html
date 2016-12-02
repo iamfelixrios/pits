@@ -1,0 +1,73 @@
+<div>
+    <div ng-show="!mobile" class="selector-container-desktop">
+        <layer-selector selected="selectedlayer" selectfn="selectlayerfn()"></layer-selector>
+    </div>
+    <div id="mySidenav-{{mobile}}" class="sidenav" ng-class="{'sidenav-desktop' : !mobile}">
+        <!-- Mobile filter -->
+        <div class="top-menu-panel" ng-show="mobile">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <p class="menu-nav-caption">Filtrar por</p>
+        </div>
+        <!-- Desktop filter -->
+
+        <div class="top-menu-panel top-menu-panel-desktop" ng-show="!mobile">
+            <a href="javascript:void(0)" class="searchbtn" ng-click="togglefn()"><i class="glyphicon glyphicon-search"></i></a>
+            <p class="menu-nav-caption menu-nav-caption-desktop"><a href ng-click="togglemainfn()"><i class="glyphicon glyphicon-menu-hamburger"></i></a>
+                &nbsp; <div id="filter-to-hide" class="filter-tag-desktop"><a href ng-click="select">Filtrar por</a></div>
+                <input id="search-to-hide" type="text" placeholder="Buscar..." class="form-control search-desktop"  placeholder="Buscar por..." ng-model="vm.searchString">
+            </p>
+
+        </div>
+        <!-- end of filter -->
+
+            <div class="panel-group hideable-desktop-boxes" id="accordion-{{mobile}}">
+                <div class="panel panel-default">
+                    <div class="panel-heading seccion-menu">
+                    <h4 class="panel-title">
+                        <a href class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-{{mobile}}" data-target="#collapseOne-{{mobile}}">
+                        Distrito
+                        </a>
+                    </h4>
+                    </div>
+                    <div id="collapseOne-{{mobile}}" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                    </div>
+                </div>
+                <div class="panel panel-default boton-menu">
+                    <div class="panel-heading seccion-menu">
+                    <h4 class="panel-title">
+                        <a href class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-{{mobile}}" data-target="#collapseTwo-{{mobile}}">
+                        CATEGORIA
+                        </a>
+                    </h4>
+                    </div>
+                    <div id="collapseTwo-{{mobile}}" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Clear for desktop accordion - needed -->
+            <div class="btn-clear-space-menu hideable-desktop-boxes">&nbsp;</div>
+
+            <div class="panel panel-default boton-aplicar-menu hideable-desktop-boxes">
+                <div class="panel-heading seccion-menu-violet">
+                <h4 class="panel-title">
+                    <i class="glyphicon glyphicon-ok"></i> &nbsp; Aplicar filtros
+                </h4>
+                </div>
+            </div>
+            <div class="panel panel-default boton-limpiar-menu hideable-desktop-boxes">
+                <div class="panel-heading seccion-menu">
+                <h4 class="panel-title panel-lower">
+                    <i class="glyphicon glyphicon-remove red-icon"></i> &nbsp; Eliminar filtros
+                </h4>
+                </div>
+            </div>
+        
+    </div>
+</div>

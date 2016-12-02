@@ -6,6 +6,7 @@ html, body {
 }
 
 #main {
+    position: absolute;
     height: 100%;
 }
 #map {
@@ -32,6 +33,24 @@ html, body {
     margin-left: 10px;
 } 
 
+.btn-clear-space-menu {
+    height: 98px;
+}
+
+.search-desktop {
+    width: 150px;
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 45px;
+}
+
+.filter-tag-desktop {
+    display: inline;
+    position: absolute;
+    top: 14px;
+    left: 45px;    
+}
 .boton-aplicar-menu {
     position: absolute;
     width: 100%;
@@ -58,6 +77,13 @@ html, body {
     margin-bottom: 10px;
 }
 
+.selector-container-desktop {
+    top: 10px;
+    left: 17px;
+    position: absolute;
+    width: 216px;
+}
+
 /* Navigation menu */
 .sidenav {
     height: 100%; /* 100% Full-height */
@@ -73,9 +99,20 @@ html, body {
     border: solid 1px #CCC;
 }
 
+.sidenav-desktop {
+    top: 90px;
+    left: 40px;
+    height: auto;
+    overflow-y: hidden;
+}
+
+.put-border {
+    border: solid 1px #CCC;
+}
 
 /* The navigation menu links */
 .sidenav a {
+    color: black;
     display: block;
     transition: 0.3s
 }
@@ -94,6 +131,7 @@ html, body {
     margin: 0px;
 }
 
+
 /* Position and style the close button (top right corner) */
 .sidenav .closebtn {
     font-size: 36px;
@@ -102,12 +140,11 @@ html, body {
     margin-right: 20px;
 
 }
-.sidenav .closebtn {
-    font-size: 36px;
-    color: white;
+.sidenav .searchbtn {
+    font-size: 18px;
     float: right;
+    margin-top: 15px;
     margin-right: 20px;
-
 }
 
 .white-bg {
@@ -118,7 +155,6 @@ html, body {
 /* Listado */
 
 #listado {
-    position: absolute;
     top: 10px;
     display: none;
     height: 100%;
@@ -189,17 +225,38 @@ html, body {
     background-color: #984de8;
 }
 
+.top-menu-panel-desktop {
+    font-weight: bold;
+    background-color: white;
+    color: black;
+}
+
 .menu-nav-caption {
     margin: 15px 0 0 17px;
     font-size: 11pt;
 }
+
+.menu-nav-caption-desktop {
+    margin: 15px 0 0 17px;
+}
+
+.desktop-menu {
+    position: fixed;
+    top: 30px;
+    left: 40px;
+}
+
 @media screen and (max-width: 667px) { 
     #listado {
         margin-top: 70px;
     }
+    .desktop-menu {
+        display: none;
+    }
 }
 @media screen and (min-width: 667px) { 
     .mobile-menu {
+        display: none;
     }
 }
 

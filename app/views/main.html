@@ -47,81 +47,17 @@
             </div>
         </div>
 
+        <!-- Desktop and tablet version of menu -->
+        <div class="desktop-menu">
+            <side-menu selectedlayer="vm.modo" selectlayerfn="vm.updateLayer()" mobile=false search-fn="" togglemainfn="vm.toggleSideDesktop()" togglefn="vm.toggleSearch()"></side-menu>          
+        </div>
+
         <!-- controls and menu for mobile only -->
-
         <div class="mobile-menu">
-            <div id="mySidenav" class="sidenav">
-                <div class="top-menu-panel">
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <p class="menu-nav-caption">Filtrar por</p>
-                </div>
+            <side-menu mobile=true></side-menu>
 
-                    <div class="panel-group" id="accordion">
-                    <div class="panel panel-default">
-                        <div class="panel-heading seccion-menu">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                            Distrito
-                            </a>
-                        </h4>
-                        </div>
-                        <div id="collapseOne" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default boton-menu">
-                        <div class="panel-heading seccion-menu">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                            CATEGORIA
-                            </a>
-                        </h4>
-                        </div>
-                        <div id="collapseTwo" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                        </div>
-                    </div>
-                    </div>
+            <layer-selector selected="vm.modo" selectfn="vm.updateLayer()"></layer-selector>
 
-                    <div class="panel panel-default boton-aplicar-menu">
-                        <div class="panel-heading seccion-menu-violet">
-                        <h4 class="panel-title">
-                            <i class="glyphicon glyphicon-ok"></i> &nbsp; Aplicar filtros
-                        </h4>
-                        </div>
-                    </div>
-                    <div class="panel panel-default boton-limpiar-menu">
-                        <div class="panel-heading seccion-menu">
-                        <h4 class="panel-title panel-lower">
-                            <i class="glyphicon glyphicon-remove red-icon"></i> &nbsp; Eliminar filtros
-                        </h4>
-                        </div>
-                    </div>
-                
-            </div>
-
-            <div class="row content-selector-mobile">
-                <div class="col-xs-6 text-center">
-                    <div class="radio radio-info">
-                        <input type="radio" name="tipo" id="btn_tipo_1" value="mapa" checked>
-                        <label>
-                            MAPA
-                        </label>
-                    </div>
-                </div>
-                <div class="col-xs-6 text-center">
-                    <div class="radio radio-info">
-                        <input type="radio" name="tipo" id="btn_tipo_2" value="lista">
-                        <label>
-                            LISTADO
-                        </label>
-                    </div>
-                </div>
-            </div>
             <div class="row">
                 <div class="col-xs-1">
                     <button onclick="openNav()" type="button" class="btn btn-circle btn-white btn-sm"><i class="glyphicon glyphicon-list"></i></button>
