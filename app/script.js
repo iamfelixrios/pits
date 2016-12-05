@@ -33,7 +33,6 @@
         activate();
 
         function activate() {
-            geoDataService.loadData();
         }
 
         // Cambia de capa Mapa a capa Listado
