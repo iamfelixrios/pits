@@ -33,7 +33,7 @@ function mainController($http, $scope) {
     vm.submit = submit;
 
 
-    var prev_markers = false;
+    var prev_markers = [];
     var dataMapa = {};
     vm.setANames = [];
     vm.setBNames = [];
@@ -43,18 +43,42 @@ function mainController($http, $scope) {
     vm.currentSearch = '';
     vm.itemList = [];
 
+    // Default map settings
+    vm.center = {lat: 41.386122276956, lng: 2.1871691182577};
+    vm.zoom = 13;
+
+
+    window.initMap = function() {
+        vm.map = new google.maps.Map(document.getElementById('map'), {
+            center: vm.center,
+            zoom: vm.zoom,
+            mapTypeControl: false,
+        });
+    }
+
     activate();
 
     function activate() {
+
+        var s = document.createElement('script');
+                s.src = '//maps.googleapis.com/maps/api/js?key=AIzaSyDwYcxFqTMGl7mxngEtKIufHZAx_BWEbbo&callback=initMap';
+                document.body.appendChild(s);
+
         $http.get("vmpits.json").then(function (response) {
            dataMapa = response.data;
            dataMapa.markers = [];
-           createMarkers(dataMapa);
            vm.icons = dataMapa.icons;
            vm.setANames = dataMapa.setANames;
            vm.setBNames = dataMapa.setBNames;           
            vm.doneLoad = true;
+           vm.center = dataMapa.settings.center;
+           vm.zoom = dataMapa.settings.zoom;
 
+           if (vm.map) {
+               vm.map.setCenter(vm.center);
+               vm.map.setZoom(vm.zoom);
+            };
+           
            $('.loadingLayer').hide();
            $('#btnSearch').prop('disabled', false);  
         });    
@@ -69,9 +93,10 @@ function mainController($http, $scope) {
 
         layer = pitsQuery(dataMapa, dis!==-1? [dis] : [], cat!==-1? [cat] : [] , $('#keyword').val() );
         if( prev_markers ) {
-            clearLayer(prev_markers);
+            clearLayer(vm.prev_markers);
+             vm.prev_markers = [];
         }
-        prev_markers = layer.markers;                        
+        vm.prev_markers = layer.markers;                        
         setMapOnAll(map, layer.markers);                          
     }
 
@@ -90,7 +115,7 @@ function mainController($http, $scope) {
             $('#map').show();
             $('#listado').hide();
             $('.mobile-menu').css('background-color', 'transparent');
-            google.maps.event.trigger(window.map, "resize");
+            google.maps.event.trigger(vm.map, "resize");
         } else {
             $('.btn_tipo_2').each(function() {
                 $(this).prop('checked', true);
@@ -135,7 +160,7 @@ function mainController($http, $scope) {
         }
         vm.itemList = layer.list;
         vm.prev_markers = layer.markers;                        
-        setMapOnAll(window.map, layer.markers);    
+        setMapOnAll(vm.map, layer.markers);    
 
     }
 

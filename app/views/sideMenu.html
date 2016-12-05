@@ -13,7 +13,7 @@
         <div class="top-menu-panel top-menu-panel-desktop" ng-show="!mobile">
             <a href="javascript:void(0)" class="searchbtn" ng-click="toggleSearch()"><i class="glyphicon glyphicon-search"></i></a>
             <p class="menu-nav-caption menu-nav-caption-desktop"><a href ng-click="togglemainfn()"><i class="glyphicon glyphicon-menu-hamburger"></i></a>
-                &nbsp; <div id="filter-to-hide" class="filter-tag-desktop"><a href ng-click="select">Filtrar por</a></div>
+                &nbsp; <div id="filter-to-hide" class="filter-tag-desktop">Filtrar por</div>
                 <input id="search-to-hide" type="text" placeholder="Buscar..." class="form-control search-desktop"  placeholder="Buscar por..." ng-model="searchString">
             </p>
 
@@ -33,7 +33,7 @@
                     <div class="panel-body">
 
                         <div class="form-group check-map" ng-repeat="distrito in setanames track by $index" >
-                            <label><input type="checkbox" class="district-check" value="{{$index}}"> {{distrito}}</label>
+                            <label class="pits-label"><input type="checkbox" class="district-check" value="{{$index}}"> {{distrito}}</label>
                         </div>
 
 
@@ -50,8 +50,8 @@
                     </div>
                     <div id="collapseTwo-{{mobile}}" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <div class="form-group check-map" ng-repeat="categoria in setbnames track by $index" >
-                            <label><input type="checkbox" class="category-check" value="{{$index}}"> <img src="/img/{{seticons[$index]}}" width="15px" height="15px"> {{categoria}}</label>
+                        <div class="form-group check check-map" ng-repeat="categoria in setbnames track by $index" >
+                            <label class="pits-label"><input type="checkbox" class="category-check" value="{{$index}}"> <img src="/img/{{seticons[$index]}}" width="15px" height="15px"> {{categoria}}</label>
                         </div>
                     </div>
                     </div>

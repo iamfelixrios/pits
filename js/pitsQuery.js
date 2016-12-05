@@ -65,9 +65,13 @@ function sanitize(word){
 }
 
 function idToMarker(vm,pids){
-    var layer = [];
+    var layer = [], activeMarker, j;
     var ids = (pids || []);
-    for (var i = 0; i < ids.length; i++) layer.push(vm.markers[ids[i]]); 
+    for (var i = 0; i < ids.length; i++) {
+        j = ids[i];
+        activeMarker = createMarker(vm,vm.pits[j].lat,vm.pits[j].lng,vm.pits[j].tit,vm.pits[j].abs,vm.pits[j].img,vm.pits[j].icon,vm.pits[j].dis,vm.pits[j].adr, vm.pits[j].id);        
+        layer.push(activeMarker);        
+    } 
         
     return layer;
 }

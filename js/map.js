@@ -1,14 +1,7 @@
 var prev_infowindow =false;
 
-function  createMarkers(vm){
-  for(var i=0; i< vm.pits.length; i++){
-    addMarker(vm,vm.pits[i].lat,vm.pits[i].lng,vm.pits[i].tit,vm.pits[i].abs,vm.pits[i].img,vm.pits[i].icon,vm.pits[i].dis,vm.pits[i].adr, vm.pits[i].id);    
-  }
-}
-
-function addMarker(vm, lat, lng, title, exc, img, cat, dis, adr, id){
-	var pit;
-	pit = new google.maps.Marker({position: {lat: lat, lng: lng}, title: title, icon: 'img/' + vm.icons[cat]});
+function createMarker(vm, lat, lng, title, exc, img, cat, dis, adr, id) {  
+	var pit = new google.maps.Marker({position: {lat: lat, lng: lng}, title: title, icon: 'img/' + vm.icons[cat]});
     var link = vm.settings.baseUrl + composeLink(title, id);    
     var contentString = '<div id="content"><div id="siteNotice"></div>' +
         '<p><img src="img/'+ vm.icons[cat]+'" align="left" class="infoWnd">'+ vm.setBNames[cat]+'</p>' +
@@ -30,7 +23,7 @@ function addMarker(vm, lat, lng, title, exc, img, cat, dis, adr, id){
 
         infowindow.open(map, pit);
     });  	
-	vm.markers.push(pit);
+	return pit;
 }
 
 // Sets the map on all markers in the array.
