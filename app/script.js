@@ -20,18 +20,19 @@
     // create the controller and inject Angular's $scope
     .controller('mainController', mainController); 
     
-mainController.inject = ['$http', '$scope'];
+mainController.inject = ['$http'];
     
-function mainController($http, $scope) {
+function mainController($http) {
     // create a message to display in our view
     var vm = this;
 
     vm.modo = 'mapa';
+
+    // Funciones visibles desde la vista
     vm.updateLayer = updateLayer;
     vm.toggleSideDesktop = toggleSideDesktop;
     vm.setFilters = setFilters;
     vm.submit = submit;
-
 
     var prev_markers = [];
     var dataMapa = {};
@@ -80,24 +81,7 @@ function mainController($http, $scope) {
             };
            
            $('.loadingLayer').hide();
-           $('#btnSearch').prop('disabled', false);  
         });    
-    }
-
-    // Handle filter click
-
-    function updateSearch() {
-
-        var dis = parseInt($('#sDistrito').val());
-        var cat = parseInt($('#sCategoria').val());
-
-        layer = pitsQuery(dataMapa, dis!==-1? [dis] : [], cat!==-1? [cat] : [] , $('#keyword').val() );
-        if( prev_markers ) {
-            clearLayer(vm.prev_markers);
-             vm.prev_markers = [];
-        }
-        vm.prev_markers = layer.markers;                        
-        setMapOnAll(map, layer.markers);                          
     }
 
     // Cambia de capa Mapa a capa Listado
