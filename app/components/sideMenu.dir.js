@@ -3,13 +3,17 @@ pitsApp.directive('sideMenu', function() {
       restrict: 'AE',
       replace: 'true',
       templateUrl: '/app/views/sideMenu.html',
+      controller: 'sideMenuCtrl',
       scope: {
           mobile: '=',
           searchfn: '&',
-          togglefn: '&',
           togglemainfn: '&',
           selectedlayer: '=',
-          selectlayerfn: '&'
+          selectlayerfn: '&',
+          seticons: '=',
+          setanames: '=',
+          setbnames: '=',
+          filtersfn: '&'
     }
   };
 });

@@ -1,0 +1,31 @@
+<div class="inner-listado">
+    <div class="row header-listado">
+        <div class="col-xs-12 col-lg-9 col-lg-offset-3">
+            <h4>Se han hallado {{items.length}} resultados</h4>
+        </div>
+    </div>
+
+    <div class="row results-container">
+        <div class="col-xs-12 col-lg-9 col-lg-offset-3">
+
+            <!-- Para cada item del listado -->
+            <div class="row results-item" ng-repeat="item in items">
+                <div class="col-xs-5 col-sm-3">
+                    <img class="listado-img" src="{{item.img}}">
+                </div>
+                <div class="col-xs-7 col-sm-9">
+                    <h3 class="listado-title">
+                        {{item.tit}}
+                    </h3>
+                    <div class="listado-descripcion" ng-bind-html="item.abs"></div> 
+                    <p class="listado-distrito">
+                        {{item.dis}}
+                    </p>
+                    <p class="listado-footer"><img src="/{{item.icon}}" width="20px" height="20px"> {{item.cat}}</p>
+                </div>
+            </div>
+            <!-- end ng-repeat -->
+
+        </div>
+    </div>  
+</div>

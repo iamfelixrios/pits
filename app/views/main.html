@@ -1,62 +1,17 @@
 <!-- Mapa -->
-
         <!-- Listado -->
         <div id="listado">
-
-            <div class="inner-listado">
-                <div class="row header-listado">
-                    <div class="col-xs-12 col-lg-9 col-lg-offset-3">
-                        <h4>Se han hallado 45 resultados</h4>
-                    </div>
-                </div>
-
-                <div class="row results-container">
-                    <div class="col-xs-12 col-lg-9 col-lg-offset-3">
-
-                    <!-- Para cada item del listado -->
-                    <div class="row results-item">
-                        <div class="col-xs-5">
-                            <img class="listado-img" src="img/parcguel.jpg">
-                        </div>
-                        <div class="col-xs-7">
-                            <h3 class="listado-title">
-                                Parc Güel
-                            </h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lacus enim, fringilla nec congue quis, egestas id felis. Donec.
-                            </p> 
-                            <p class="listado-footer">Patrimonio cultural</p>
-                        </div>
-                    </div>
-                    <div class="row results-item">
-                        <div class="col-xs-5">
-                            <img class="listado-img" src="img/sagradafamilia.jpg">
-                        </div>
-                        <div class="col-xs-7">
-                            <h3 class="listado-title">
-                                Sagrada Familia
-                            </h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lacus enim, fringilla nec congue quis, egestas id felis. Donec.
-                            </p> 
-                            <p class="listado-footer">Patrimonio cultural</p>
-                        </div>
-                    </div>
-                    </div>
-
-
-                </div>  
-            </div>
+            <listado-locations items="vm.itemList"></listado-locations>
         </div>
 
         <!-- Desktop and tablet version of menu -->
         <div class="desktop-menu">
-            <side-menu selectedlayer="vm.modo" selectlayerfn="vm.updateLayer()" mobile=false search-fn="" togglemainfn="vm.toggleSideDesktop()" togglefn="vm.toggleSearch()"></side-menu>          
+            <side-menu seticons="vm.icons" filtersfn="vm.setFilters(distritos, categorias)" setanames="vm.setANames" setbnames="vm.setBNames" selectedlayer="vm.modo" selectlayerfn="vm.updateLayer()" mobile=false searchfn="vm.submit(query)" togglemainfn="vm.toggleSideDesktop()"></side-menu>          
         </div>
 
         <!-- controls and menu for mobile only -->
         <div class="mobile-menu">
-            <side-menu mobile=true></side-menu>
+            <side-menu seticons="vm.icons" filtersfn="vm.setFilters(distritos, categorias)"  setanames="vm.setANames" setbnames="vm.setBNames" mobile=true></side-menu>
 
             <layer-selector mobile="true" selected="vm.modo" selectfn="vm.updateLayer()"></layer-selector>
 
@@ -66,9 +21,9 @@
                 </div>
                 <div class="col-xs-8 col-xs-offset-1">
                     <div class="input-group">
-                        <input type="text" class="form-control"  placeholder="Buscar por..." >
+                        <input type="text" class="form-control" ng-model="vm.currentSearch" placeholder="Buscar por..." >
                         <span class="input-group-addon">
-                            <button type="submit">
+                            <button type="submit" ng-click="vm.submit()">
                                 <span class="glyphicon glyphicon-search"></span>
                             </button>  
                         </span>
