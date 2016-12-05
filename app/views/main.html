@@ -5,12 +5,13 @@
 
             <div class="inner-listado">
                 <div class="row header-listado">
-                    <div class="col-xs-12">
+                    <div class="col-xs-12 col-lg-9 col-lg-offset-3">
                         <h4>Se han hallado 45 resultados</h4>
                     </div>
                 </div>
 
                 <div class="row results-container">
+                    <div class="col-xs-12 col-lg-9 col-lg-offset-3">
 
                     <!-- Para cada item del listado -->
                     <div class="row results-item">
@@ -41,6 +42,7 @@
                             <p class="listado-footer">Patrimonio cultural</p>
                         </div>
                     </div>
+                    </div>
 
 
                 </div>  
@@ -56,7 +58,7 @@
         <div class="mobile-menu">
             <side-menu mobile=true></side-menu>
 
-            <layer-selector selected="vm.modo" selectfn="vm.updateLayer()"></layer-selector>
+            <layer-selector mobile="true" selected="vm.modo" selectfn="vm.updateLayer()"></layer-selector>
 
             <div class="row">
                 <div class="col-xs-1">

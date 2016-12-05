@@ -5,7 +5,8 @@ pitsApp.directive('layerSelector', function() {
     templateUrl: '/app/views/layerSelector.html',
     scope: {
         selected: '=',
-        selectfn: '&'
+        selectfn: '&',
+        mobile: '='
     }
   };
 });

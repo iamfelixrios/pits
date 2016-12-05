@@ -18,7 +18,7 @@
             });
     }])
     // create the controller and inject Angular's $scope
-    .controller('mainController', function($scope) {
+    .controller('mainController', [ 'geoDataService', function($scope, geoDataService) {
         // create a message to display in our view
         var vm = this;
 
@@ -33,6 +33,7 @@
         activate();
 
         function activate() {
+            geoDataService.loadData();
         }
 
         // Cambia de capa Mapa a capa Listado
@@ -86,5 +87,5 @@
             });
         }
 
-    });
+    }]);
 

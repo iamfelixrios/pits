@@ -1,6 +1,6 @@
 <div>
     <div ng-show="!mobile" class="selector-container-desktop">
-        <layer-selector selected="selectedlayer" selectfn="selectlayerfn()"></layer-selector>
+        <layer-selector mobile="mobile" selected="selectedlayer" selectfn="selectlayerfn()"></layer-selector>
     </div>
     <div id="mySidenav-{{mobile}}" class="sidenav" ng-class="{'sidenav-desktop' : !mobile}">
         <!-- Mobile filter -->
