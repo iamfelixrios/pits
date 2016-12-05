@@ -2,19 +2,20 @@ var prev_infowindow =false;
 
 function  createMarkers(vm){
   for(var i=0; i< vm.pits.length; i++){
-    //addMarker(markers,41.38584,2.1860828,texts[0][0],texts[0][1],texts[0][2],'3','Ciutat Vella');
-    addMarker(vm,vm.pits[i].lat,vm.pits[i].lng,vm.pits[i].tit,vm.pits[i].abs,vm.pits[i].img,vm.pits[i].icon,vm.pits[i].dis);    
+    addMarker(vm,vm.pits[i].lat,vm.pits[i].lng,vm.pits[i].tit,vm.pits[i].abs,vm.pits[i].img,vm.pits[i].icon,vm.pits[i].dis,vm.pits[i].adr, vm.pits[i].id);    
   }
 }
 
-function addMarker(vm, lat, lng, title, exc, img, cat, dis){
+function addMarker(vm, lat, lng, title, exc, img, cat, dis, adr, id){
 	var pit;
 	pit = new google.maps.Marker({position: {lat: lat, lng: lng}, title: title, icon: 'img/' + vm.icons[cat]});
+    var link = vm.settings.baseUrl + composeLink(title, id);    
     var contentString = '<div id="content"><div id="siteNotice"></div>' +
-        '<h4 id="firstHeading" class="firstHeading"><a href="">'+title+'</a></h4>'+
-        '<div id="bodyContent">'+
-        '<p><img src="'+img+'"></p><p>'+exc+'</p><p>'+dis+'</p>'+'<p><img src="img/'+ vm.icons[cat]+'" align="left">'+ vm.setBNames[cat]+'</p>'
-        '</div>';
+        '<p><img src="img/'+ vm.icons[cat]+'" align="left" class="infoWnd">'+ vm.setBNames[cat]+'</p>' +
+        '<div id="bodyContent">' +
+        '<p><img src="'+img+'"></p>' +
+        '<a target="_blank" href="' + link + '">'+title+'</a>' +        
+        '<p>'+exc+'</p><p class="infoWnd">' + adr + '</p><p>' + dis + '</p></div>';
 
     var infowindow = new google.maps.InfoWindow({
         content: contentString,
@@ -52,4 +53,28 @@ function showLayer(layer) {
 function deleteLayer() {
   clearLayer(layer);
   layer = [];
+}
+
+function composeLink(title, id){
+  return normalizeTitleDetall( title ) + '_' + id + '.html' ;
+}
+
+function normalizeTitleDetall(str) {
+
+  str = str.replace(/^\s+|\s+$/g, ''); // trim
+  str = str.toLowerCase();
+
+  // remove accents, swap ñ for n, etc
+  var from = "ãàáäâẽèéëêìíïîõòóöôùúüûñç·/_,:;";
+  var to   = "aaaaaeeeeeiiiiooooouuuunc------";
+  for (var i=0, l=from.length ; i<l ; i++) {
+    str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+  }
+
+
+  str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
+    .replace(/\s+/g, '-') // collapse whitespace and replace by -
+    .replace(/-+/g, '-'); // collapse dashes
+
+  return str;
 }

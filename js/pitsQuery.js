@@ -61,20 +61,6 @@ function sanitize(word){
     for (var i=0, l=from.length ; i<l ; i++) {
         str = word.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
     }
-/*
-    word = word.replace("à", "a");
-    word = word.replace("á","a");
-    word = word.replace("à","a");        
-    word = word.replace("é","e");
-    word = word.replace("è","e");        
-    word = word.replace("í","i");
-    word = word.replace("ï","i");        
-    word = word.replace("ó","o");
-    word = word.replace("ò","o");
-    word = word.replace("ö","o");        
-    word = word.replace("ú","u");
-    word = word.replace("ü","u");       
-*/
     return word;
 }
 
@@ -90,7 +76,7 @@ function idToList(vm,pids){
     var list = [];
     var ids = (pids || []);    
     for (var i = 0; i < ids.length; i++){
-        list.push({ tit: vm.pits[ids[i]].tit, abs: vm.pits[ids[i]].abs, img: vm.pits[ids[i]].img, cat: vm.setBNames[vm.pits[ids[i]].icon], dis: vm.pits[ids[i]].dis, icon: 'img/' + vm.icons[vm.pits[ids[i]].icon] } );
+        list.push({ tit: vm.pits[ids[i]].tit, abs: vm.pits[ids[i]].abs, img: vm.pits[ids[i]].img, cat: vm.setBNames[vm.pits[ids[i]].icon], adr: vm.pits[ids[i]].adr , dis: vm.pits[ids[i]].dis, icon: 'img/' + vm.icons[vm.pits[ids[i]].icon] } );
     }  
     return list;    
 }
